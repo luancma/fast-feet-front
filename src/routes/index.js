@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import SignIn from '../pages/SignIn';
-import Dashboard from '../pages/Dashboard';
+import SignIn from '~/pages/SignIn';
+import Dashboard from '~/pages/Dashboard';
 import Route from './Route';
 
 export default function Routes() {
