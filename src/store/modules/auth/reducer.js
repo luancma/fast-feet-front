@@ -1,10 +1,34 @@
-const initialState = {
-  token: '123',
+import produce from 'immer';
+import { SIGN_IN_SUCCESS, SIGN_IN_REQUEST, SIGN_FAILURE } from './actions';
+
+const INITIAL_STATE = {
+  token: null,
+  signed: false,
+  loading: false,
 };
 
-export default function auth(state = initialState, action) {
-  switch (action.type) {
+const auth = (state = INITIAL_STATE, { type, payload }) => {
+  switch (type) {
+    case SIGN_IN_REQUEST:
+      return produce(state, draft => {
+        draft.loading = true;
+      });
+
+    case SIGN_IN_SUCCESS:
+      return produce(state, draft => {
+        draft.token = payload.token;
+        draft.signed = true;
+        draft.loading = false;
+      });
+
+    case SIGN_FAILURE:
+      return produce(state, draft => {
+        draft.loading = false;
+      });
+
     default:
       return state;
   }
-}
+};
+
+export default auth;

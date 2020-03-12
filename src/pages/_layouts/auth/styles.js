@@ -60,7 +60,7 @@ export const Content = styled.div`
     button {
       width: 300px;
       height: 45px;
-      margin: 15px 30px;
+      margin: 15px 30px 60px;
       border: 0;
       background: #7d40e7;
       border-radius: 4px;
