@@ -1,5 +1,10 @@
 import produce from 'immer';
-import { SIGN_IN_SUCCESS, SIGN_IN_REQUEST, SIGN_FAILURE } from './actions';
+import {
+  SIGN_IN_SUCCESS,
+  SIGN_IN_REQUEST,
+  SIGN_FAILURE,
+  SIGN_OUT,
+} from './actions';
 
 const INITIAL_STATE = {
   token: null,
@@ -24,6 +29,12 @@ const auth = (state = INITIAL_STATE, { type, payload }) => {
     case SIGN_FAILURE:
       return produce(state, draft => {
         draft.loading = false;
+      });
+
+    case SIGN_OUT:
+      return produce(state, draft => {
+        draft.token = null;
+        draft.signed = false;
       });
 
     default:

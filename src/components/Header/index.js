@@ -1,11 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import { Container, Content, User } from './styles';
 import { Link } from 'react-router-dom';
-
 import logo from '../../assets/logo.svg';
 import { history } from '~/services/history';
+import { signOut } from '~/store/modules/auth/actions';
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  const handleSignOut = () => dispatch(signOut());
+
   return (
     <Container>
       <Content>
@@ -35,7 +41,7 @@ export default function Header() {
         <aside>
           <User>
             <span>Admin fastfeet</span>
-            <button>Sair do sistema</button>
+            <button onClick={handleSignOut}>Sair do sistema</button>
           </User>
         </aside>
       </Content>

@@ -3,6 +3,8 @@ import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 1200px;
+  height: 100vh;
+
   margin-left: 120px;
   margin-right: 120px;
 
@@ -137,6 +139,7 @@ export const DeliveriesTable = styled.div`
 `;
 
 export const ActionsArea = styled.ul`
+  z-index: 1;
   position: absolute;
   width: 150px;
   left: calc(50% - 78px);
