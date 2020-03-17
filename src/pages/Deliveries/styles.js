@@ -3,8 +3,6 @@ import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 1200px;
-  height: 100vh;
-
   margin-left: 120px;
   margin-right: 120px;
 
