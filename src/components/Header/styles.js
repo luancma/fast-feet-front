@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   background: #fff;
@@ -28,23 +28,29 @@ export const Content = styled.div`
 
     ul {
       display: flex;
-
-      li {
-        color: #fff;
-        margin-right: 21px;
-
-        a {
-          text-transform: uppercase;
-          font-weight: bold;
-          color: #999;
-          transition: color 0.2s;
-
-          &:hover {
-            color: #444;
-          }
-        }
-      }
     }
+  }
+`;
+
+export const ListItem = styled.li`
+  color: #fff;
+  margin-right: 21px;
+
+  a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #444;
+    }
+
+    ${props =>
+      props.pathname &&
+      css`
+        color: #444;
+      `}
   }
 `;
 
