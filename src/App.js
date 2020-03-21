@@ -15,7 +15,7 @@ import GlobalStyle from './style/global';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store}>  
       <PersistGate persistor={persistor}>
         <Router history={history}>
           <Routes />
