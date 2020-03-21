@@ -24,11 +24,12 @@ export function* signIn({ payload }) {
     toast.success('Bem vindo!');
 
     history.push('/dashboard');
+
   } catch (error) {
+    yield put(signFailure());
     toast.error(
       'Falha ao acessar o sistema, verifique os dados verifique os dados informados'
     );
-    yield put(signFailure());
   }
 }
 
