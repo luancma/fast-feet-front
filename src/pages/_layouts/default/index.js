@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '~/components/Header';
 import { Wrapper } from './styles';
+import { history } from '~/services/history';
 
 export default function DefaultLayout({ children }) {
   return (

@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  Container,
-  UserActions,
-  ActionButton,
-  Action,
-  ActionsArea,
-} from './styles';
+import { Container, ActionButton, Action, ActionsArea } from './styles';
 import {
   MdSearch,
   MdVisibility,
@@ -20,10 +14,13 @@ import {
 import { fetchAll } from '~/store/modules/delivery/actions';
 import { TableHeader, Table, TableBody } from '~/style/Table/styles';
 import { searchDelivery } from '~/store/modules/delivery/actions';
+import { CreateButton } from '~/style/CreateButton/styles';
+import { InputSearch } from '~/style/InputSearch/styles';
+import { ActionArea } from '~/style/ActionArea/styles';
 
 export default function Deliveries() {
   const dispatch = useDispatch();
-  const { loading, deliveries } = useSelector(state => state.delivery);
+  const { deliveries } = useSelector(state => state.delivery);
   const [open, setOpen] = React.useState(false);
   const [searchTerm, setSearchTerm] = React.useState('');
   const [selectedId, setSelectedId] = React.useState(null);
@@ -46,21 +43,21 @@ export default function Deliveries() {
     <Container>
       <h2>Gerenciando encomendas</h2>
 
-      <UserActions>
-        <div>
+      <ActionArea>
+        <InputSearch>
           <MdSearch size={18} />
           <input
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             placeholder="Buscar encomendas"
           />
-        </div>
+        </InputSearch>
 
-        <button>
+        <CreateButton>
           <MdAdd color="#fff" size={20} />
           <span>Cadastrar</span>
-        </button>
-      </UserActions>
+        </CreateButton>
+      </ActionArea>
 
       <Table>
         <TableHeader>
