@@ -18,3 +18,4 @@ const user = (state = INITIAL_STATE, { type, payload }) => {
 };
 
 export default user;
+  
