@@ -15,7 +15,7 @@ export const fetchAllRecipientsSuccess = recipients => ({
     }
 })
 
-export const fetchAllRecipients = () => ({
+export const fetchAllRecipientsFail = () => ({
     type: FETCH_ALL_RECIPIENTS_FAIL,
   
 })

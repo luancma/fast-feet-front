@@ -1,4 +1,5 @@
-import { FETCH_ALL_RECIPIENTS, FETCH_ALL_RECIPIENTS_SUCCESS } from './actions';
+import { FETCH_ALL_RECIPIENTS, FETCH_ALL_RECIPIENTS_SUCCESS, FETCH_ALL_RECIPIENTS_FAIL } from './actions';
+import produce from 'immer';
 
 const INITIAL_STATE = {
   recipients: [],
@@ -17,11 +18,11 @@ const recipient = (state = INITIAL_STATE, { type, payload }) => {
         draft.recipients = payload.recipients
         break;
       }
-        case FETCH_ALL_RECIPIENTS: {
-            draft.loading = false;
-            break;
-        }
-        default:
+      case FETCH_ALL_RECIPIENTS_FAIL: {
+          draft.loading = false;
+          break;
+      }
+      default:
     }
   });
 };
